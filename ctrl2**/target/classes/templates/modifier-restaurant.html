@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Modifier un Restaurant</title>
+    <link rel="stylesheet" th:href="@{/style.css}">
+</head>
+<body>
+
+<h2 class="page-title">Modifier le Restaurant</h2>
+
+<form th:action="@{/restaurants/modifier}" th:object="${restaurant}" method="post" class="form-container">
+    <input type="hidden" th:field="*{id}" />
+
+    <label>Nom:</label>
+    <input type="text" th:field="*{nom}" required />
+
+    <label>Adresse:</label>
+    <input type="text" th:field="*{adresse}" required />
+
+    <label>Description:</label>
+    <textarea th:field="*{description}" required></textarea>
+
+    <button type="submit" class="button">Modifier</button>
+    <form th:action="@{/restaurants/supprimer(id=${restaurant.id})}" method="post" style="display:inline;">
+        <button type="submit" class="button">Supprimer</button>
+    </form>
+</form>
+
+</body>
+</html>

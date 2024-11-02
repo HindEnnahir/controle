@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Modifier un Menu</title>
+  <link rel="stylesheet" th:href="@{/style.css}">
+</head>
+<body>
+
+<h2 class="page-title">Modifier le Menu</h2>
+
+<form th:action="@{/menus/modifier}" th:object="${menu}" method="post" class="form-container">
+  <input type="hidden" th:field="*{id}" />
+
+  <label>Nom:</label>
+  <input type="text" th:field="*{nom}" required />
+
+  <label>Description:</label>
+  <input type="text" th:field="*{description}" required />
+
+  <label>Plats:</label>
+  <input type="text" th:field="*{plats}" required />
+
+  <label>Restaurant:</label>
+  <select th:field="*{restaurant.id}" required>
+    <option value="" disabled>Choisissez un restaurant</option>
+    <option th:each="restaurant : ${restaurants}"
+            th:value="${restaurant.id}"
+            th:text="${restaurant.nom}"
+            th:selected="${menu.restaurant != null && menu.restaurant.id == restaurant.id}"></option>
+  </select>
+
+  <button type="submit" class="button">Modifier</button>
+  <form th:action="@{/menus/supprimer(id=${menu.id})}" method="post" style="display:inline;">
+    <button type="submit" class="button">Supprimer</button>
+  </form>
+</form>
+
+</body>
+</html>

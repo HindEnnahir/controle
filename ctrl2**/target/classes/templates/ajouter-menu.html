@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Ajouter Menu</title>
+    <link rel="stylesheet" th:href="@{/style.css}">
+</head>
+<body>
+<h1 class="page-title">Ajouter un Menu</h1>
+<form th:action="@{/menus/ajouter}" th:object="${menu}" method="post" class="form-container">
+    <label for="nom">Nom du Menu:</label>
+    <input type="text" id="nom" th:field="*{nom}" required />
+
+    <label for="description">Description:</label>
+    <input type="text" id="description" th:field="*{description}" required />
+
+    <label for="plats">Plats:</label>
+    <input type="text" id="plats" th:field="*{plats}" required />
+
+    <label for="restaurant">Sélectionner un Restaurant:</label>
+    <select id="restaurant" th:field="*{restaurant.id}" required>
+        <option value="" disabled selected>Choisissez un restaurant</option>
+        <option th:each="restaurant : ${restaurants}"
+                th:value="${restaurant.id}"
+                th:text="${restaurant.nom}"></option>
+    </select>
+
+    <button type="submit" class="button">Ajouter Menu</button>
+</form>
+</body>
+
+</html>
+

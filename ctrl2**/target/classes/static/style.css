@@ -1,0 +1,155 @@
+/* Base styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f0e1; /* Light beige background */
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+h1, h2, h3, .page-title {
+    color: #5e4b8a; /* Dark mauve for titles */
+    text-align: center;
+    margin: 20px 0;
+}
+
+/* Form styles */
+.form-container {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.form-container label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #5e4b8a; /* Dark mauve */
+}
+
+.form-container input[type="text"],
+.form-container textarea,
+.form-container select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    transition: border-color 0.3s ease;
+}
+
+.form-container input[type="text"]:focus,
+.form-container textarea:focus,
+.form-container select:focus {
+    border-color: #5e4b8a; /* Dark mauve focus */
+    outline: none;
+}
+
+/* Table styles */
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.table th, .table td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.table th {
+    background-color: #5e4b8a; /* Dark mauve */
+    color: #fff;
+    font-weight: bold;
+}
+
+.table td {
+    background-color: #f5f0e1; /* Light beige */
+}
+
+.table tr:hover {
+    background-color: #f1d6d6; /* Light red on hover */
+}
+
+/* List styles */
+.restaurant-item {
+    margin: 15px;
+    padding: 15px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease;
+}
+
+.restaurant-item:hover {
+    transform: translateY(-5px);
+}
+
+/* Button styles */
+.button {
+    display: inline-block;
+    padding: 10px 15px;
+    margin: 5px;
+    background-color: #7a5c9b; /* Light mauve */
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.button:hover {
+    background-color: #5e4b8a; /* Dark mauve on hover */
+    transform: scale(1.05);
+}
+
+/* Navigation styles */
+.nav-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.nav-list .button {
+    background-color: #7a5c9b; /* Light mauve */
+    padding: 8px 12px;
+}
+
+.nav-list .button:hover {
+    background-color: #5e4b8a; /* Dark mauve on hover */
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.page-title {
+    animation: fadeIn 1s ease-in-out;
+}
+
+.form-container, .restaurant-item, .table {
+    animation: fadeIn 1.2s ease-in-out;
+}
+
+a.button, .form-container button[type="submit"] {
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+/* Additional styling for "Détails" buttons next to menus */
+ul li .button {
+    font-size: 0.9em;
+    padding: 5px 10px;
+    margin-left: 10px;
+}
+

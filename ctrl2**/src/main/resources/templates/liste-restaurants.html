@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Liste des Restaurants</title>
+    <link rel="stylesheet" th:href="@{/style.css}">
+</head>
+<body>
+<h2 class="page-title">Liste des Restaurants</h2>
+
+<div th:each="restaurant : ${restaurants}" class="restaurant-item">
+    <h3 th:text="${restaurant.nom}">Nom du Restaurant</h3>
+    <p th:text="${restaurant.adresse}">Adresse</p>
+    <p th:text="${restaurant.description}">Description</p>
+    <h4>Menus proposés :</h4>
+    <ul>
+        <li th:each="menu : ${restaurant.menus}">
+            <p><strong>Nom du menu:</strong> <span th:text="${menu.nom}"></span></p>
+            <a th:href="@{/menus/details/{id}(id=${menu.id})}" class="button">Détails</a>
+        </li>
+    </ul>
+    <a th:href="@{/restaurants/modifier/{id}(id=${restaurant.id})}" class="button">Modifier</a>
+    <form th:action="@{/restaurants/supprimer/{id}(id=${restaurant.id})}" method="post" style="display:inline;">
+        <button type="submit" class="button">Supprimer</button>
+    </form>
+</div>
+<a th:href="@{/}" class="button">Retour a l'acceuil</a>
+</body>
+
+</html>

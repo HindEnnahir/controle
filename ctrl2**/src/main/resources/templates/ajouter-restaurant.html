@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Ajouter un Restaurant</title>
+    <link rel="stylesheet" th:href="@{/style.css}">
+</head>
+<body>
+<h2 class="page-title">Ajouter un Restaurant</h2>
+<form th:action="@{/restaurants/ajouter}" th:object="${restaurant}" method="post" class="form-container">
+    <label>Nom:</label>
+    <input type="text" th:field="*{nom}" required />
+
+    <label>Adresse:</label>
+    <input type="text" th:field="*{adresse}" required />
+
+    <label>Description:</label>
+    <textarea th:field="*{description}" required></textarea>
+
+    <button type="submit" class="button">Ajouter</button>
+</form>
+</body>
+
+</html>
